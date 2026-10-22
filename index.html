@@ -37,7 +37,7 @@
             <h3 class="text-xs py-2">Choisissez une matiere, trouvez le niveau adapte et preparez votre inscription en quelques minutes.</h3>
             <button class=" bg-nour text-amber-50 hover:text-Bleu-Nuit rounded-xl py-1 px-3 ">Decouvrir les cours</button>
             </div>
-            <div class="hidden md:block relative w-72 h-72 rounded-2xl overflow-hidden bg-[url('/images/accompagnement-proche.webp')] bg-cover bg-center px-6 py-20 flex items-center justify-center text-center">
+            <div class="hidden md:block relative w-72 h-72 rounded-2xl overflow-hidden bg-[url('/images/accompagnement-proche.webp')] bg-cover bg-center px-6 py-20 flex items-center justify-center text-center ">
             <div class="hidden md:block absolute inset-0 bg-white/70"></div>
             <div class="hidden md:block relative">
          <h2 class="text-xl font-semibold text-nour-dark">Un accompagnement proche</h2>
@@ -51,7 +51,7 @@
             <h1 class="text-4xl text-Bleu-Nuit py-[10px]">Trouvez votre cours</h1>
             <h3 class="text-xs py-[10px]">Filtrez les cours selon le niveau et la matiere.</h3>
             <div class="flex justify-between py-[10px]">
-                <select class="border-2">
+                <select id="niveau" class="border-2">
                     <option value="">Niveau scolaire</option>
                     <option value="Primaire">Primaire</option>
                     <option value="College">College</option>
@@ -72,19 +72,14 @@
             </div>
             <p class="py-2.5 text-shadow-xs">12 cours disponibles</p>
         </section>
-        <section  class="flex items-center justify-center gap-70">
-            <div class="border-2 h-auto  w-70 py-1 px-1 rounded-xl bg-[#fcfcfa]">
-                <div class="border-2 h-auto w-[30px] rounded-[6px] py-0.5 bg-[#EDF7F2] ">
-                    <h2 class="flex justify-center">M</h2>
-                </div>
-                <h1 class="text-2xl text-Bleu-Nuit  px-1">Mathematiques</h1>
-                <p class="px-1">2eme Bac</p>
-                <p class="px-1">Lun.& Mer 18:00</p>
-                <p class="text-nour px-1">350 MAD / mois</p>
-                <p class="px-1">6 places</p>
-                <button class="text-amber-50 bg-Bleu-Nuit rounded-2xl hover:text-nour px-5">Voir le cours</button>
-        </section>
-        </div>
+        <section  id="carts" class="flex flex-wrap items-center justify-center gap-70">
+
+
+
+
+           </section>
+        
+        <script src="data.js"></script>
     </body>
 
 </html>

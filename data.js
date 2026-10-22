@@ -1,0 +1,120 @@
+let cours = [
+    {
+        titre: "Mathematiques",
+        matiere: "Mathematiques",
+        niveau: "Primaire",
+        creneau: "Lun. & Mer. 16:00",
+        prix: 200,
+        places: 8
+    },
+    {
+        titre: "Francais",
+        matiere: "Francais",
+        niveau: "Primaire",
+        creneau: "Mar. & Jeu. 16:00",
+        prix: 180,
+        places: 10
+    },
+    {
+        titre: "Mathematiques",
+        matiere: "Mathematiques",
+        niveau: "Collège",
+        creneau: "Lun. & Mer. 17:00",
+        prix: 250,
+        places: 6
+    },
+    {
+        titre: "Physique-Chimie",
+        matiere: "Physique-Chimie",
+        niveau: "College",
+        creneau: "Mar. & Jeu. 17:00",
+        prix: 250,
+        places: 0
+    },
+    {
+        titre: "Francais",
+        matiere: "Francais",
+        niveau: "Tronc commun",
+        creneau: "Lun. & Mer. 18:00",
+        prix: 280,
+        places: 7
+    },
+    {
+        titre: "Anglais",
+        matiere: "Anglais",
+        niveau: "Tronc commun",
+        creneau: "Mar. & Jeu. 18:00",
+        prix: 250,
+        places: 9
+    },
+    {
+        titre: "Mathematiques",
+        matiere: "Mathematiques",
+        niveau: "1er Bac",
+        creneau: "Lun. & Mer. 18:00",
+        prix: 320,
+        places: 5
+    },
+    {
+        titre: "Physique-Chimie",
+        matiere: "Physique-Chimie",
+        niveau: "1er Bac",
+        creneau: "Mar. & Jeu. 19:00",
+        prix: 320,
+        places: 4
+    },
+    {
+        titre: "Mathematiques",
+        matiere: "Mathematiques",
+        niveau: "2e Bac",
+        creneau: "Lun. & Mer. 18:00",
+        prix: 350,
+        places: 6
+    },
+    {
+        titre: "Physique-Chimie",
+        matiere: "Physique-Chimie",
+        niveau: "2e Bac",
+        creneau: "Mar. & Jeu. 18:00",
+        prix: 350,
+        places: 0
+    },
+    {
+        titre: "Anglais",
+        matiere: "Anglais",
+        niveau: "2e Bac",
+        creneau: "Samedi 10:00",
+        prix: 280,
+        places: 8
+    },
+    {
+        titre: "Francais",
+        matiere: "Francais",
+        niveau: "2e Bac",
+        creneau: "Samedi 14:00",
+        prix: 280,
+        places: 3
+    }
+];
+
+let carts = document.getElementById("carts")
+
+
+
+for( let i =0 ; i < cours.length ; i++) {
+    console.log(cours[i].titre)
+    carts.innerHTML += `       <div class="border-2 h-auto  w-70 py-1 px-1 rounded-xl bg-[#fcfcfa]">
+                <div class="border-2 h-auto w-[30px] rounded-[6px] py-0.5 bg-[#EDF7F2] ">
+                    <h2 class="flex justify-center">M</h2>
+                </div>
+                <h1 class="text-2xl text-Bleu-Nuit  px-1">${cours[i].titre}</h1>
+                <p class="px-1">${cours[i].matiere}</p>
+                <p class="px-1">${cours[i].niveau}</p>
+                <p class="px-1">${cours[i].creneau}</p>
+                <p class="text-nour px-1"> ${cours[i].prix} MAD / mois</p>
+                <p class="px-1">${cours[i].places} places</p>
+                <button class="text-amber-50 bg-Bleu-Nuit rounded-2xl hover:text-nour px-5">Voir le cours</button>
+            </div>`
+}
+
+

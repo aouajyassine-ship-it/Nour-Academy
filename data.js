@@ -18,7 +18,7 @@ let cours = [
     {
         titre: "Mathematiques",
         matiere: "Mathematiques",
-        niveau: "Collège",
+        niveau: "College",
         creneau: "Lun. & Mer. 17:00",
         prix: 250,
         places: 6
@@ -98,11 +98,18 @@ let cours = [
 ];
 
 let carts = document.getElementById("carts")
+let niveau = document.getElementById("niveau")
 
+// niveau.addEventListener("change", (e) => {
+//     console.log(e.currentTarget.value)
+//     carts.innerHTML = ""
 
+// })
+function accademy(e) {
+    console.log("hello world", niveau.value)
+}    
 
 for( let i =0 ; i < cours.length ; i++) {
-    console.log(cours[i].titre)
     carts.innerHTML += `       <div class="border-2 h-auto  w-70 py-1 px-1 rounded-xl bg-[#fcfcfa]">
                 <div class="border-2 h-auto w-[30px] rounded-[6px] py-0.5 bg-[#EDF7F2] ">
                     <h2 class="flex justify-center">M</h2>
@@ -116,5 +123,3 @@ for( let i =0 ; i < cours.length ; i++) {
                 <button class="text-amber-50 bg-Bleu-Nuit rounded-2xl hover:text-nour px-5">Voir le cours</button>
             </div>`
 }
-
-

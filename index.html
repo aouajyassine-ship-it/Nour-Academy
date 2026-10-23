@@ -5,7 +5,7 @@
         <link href="/src/style.css" rel="stylesheet"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <nav class="bg-nour-cream flex items-center justify-between min-h-[80px]">
-            <div class="flex justify-center">
+            <div class="flex justify-center px-6">
             <a href="index.html" class=" items-center justify-between w-[50px] h-[50px]">
             <img  src="images/logo.webp" alt="Nour Academy Lgo">
             </a>
@@ -51,7 +51,7 @@
             <h1 class="text-4xl text-Bleu-Nuit py-[10px]">Trouvez votre cours</h1>
             <h3 class="text-xs py-[10px]">Filtrez les cours selon le niveau et la matiere.</h3>
             <div class="flex justify-between py-[10px]">
-                <select id="niveau" class="border-2">
+                <select id="niveau" onchange="tt()" class="border-2">
                     <option value="">Niveau scolaire</option>
                     <option value="Primaire">Primaire</option>
                     <option value="College">College</option>
@@ -72,10 +72,7 @@
             </div>
             <p class="py-2.5 text-shadow-xs">12 cours disponibles</p>
         </section>
-        <section  id="carts" class="flex flex-wrap items-center justify-center gap-70">
-
-
-
+        <section  id="carts" class="flex flex-wrap items-center justify-center gap-70 py-2">
 
            </section>
         

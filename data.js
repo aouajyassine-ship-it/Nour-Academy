@@ -1,5 +1,6 @@
 let cours = [
     {
+        logo:"M",
         titre: "Mathematiques",
         matiere: "Mathematiques",
         niveau: "Primaire",
@@ -8,6 +9,7 @@ let cours = [
         places: 8
     },
     {
+        logo:"F",
         titre: "Francais",
         matiere: "Francais",
         niveau: "Primaire",
@@ -16,6 +18,7 @@ let cours = [
         places: 10
     },
     {
+        logo:"M",
         titre: "Mathematiques",
         matiere: "Mathematiques",
         niveau: "College",
@@ -24,6 +27,7 @@ let cours = [
         places: 6
     },
     {
+        logo:"PC",
         titre: "Physique-Chimie",
         matiere: "Physique-Chimie",
         niveau: "College",
@@ -32,6 +36,7 @@ let cours = [
         places: 0
     },
     {
+        logo:"F",
         titre: "Francais",
         matiere: "Francais",
         niveau: "Tronc commun",
@@ -40,6 +45,7 @@ let cours = [
         places: 7
     },
     {
+        logo:"A",
         titre: "Anglais",
         matiere: "Anglais",
         niveau: "Tronc commun",
@@ -48,49 +54,55 @@ let cours = [
         places: 9
     },
     {
+        logo:"M",
         titre: "Mathematiques",
         matiere: "Mathematiques",
-        niveau: "1er Bac",
+        niveau: "1ere Bac",
         creneau: "Lun. & Mer. 18:00",
         prix: 320,
         places: 5
     },
     {
+        logo:"PC",
         titre: "Physique-Chimie",
         matiere: "Physique-Chimie",
-        niveau: "1er Bac",
+        niveau: "1ere Bac",
         creneau: "Mar. & Jeu. 19:00",
         prix: 320,
         places: 4
     },
     {
+        logo:"M",
         titre: "Mathematiques",
         matiere: "Mathematiques",
-        niveau: "2e Bac",
+        niveau: "2eme Bac",
         creneau: "Lun. & Mer. 18:00",
         prix: 350,
         places: 6
     },
     {
+        logo:"PC",
         titre: "Physique-Chimie",
         matiere: "Physique-Chimie",
-        niveau: "2e Bac",
+        niveau: "2eme Bac",
         creneau: "Mar. & Jeu. 18:00",
         prix: 350,
         places: 0
     },
     {
+        logo:"A",
         titre: "Anglais",
         matiere: "Anglais",
-        niveau: "2e Bac",
+        niveau: "2eme Bac",
         creneau: "Samedi 10:00",
         prix: 280,
         places: 8
     },
     {
+        logo:"F",
         titre: "Francais",
         matiere: "Francais",
-        niveau: "2e Bac",
+        niveau: "2eme Bac",
         creneau: "Samedi 14:00",
         prix: 280,
         places: 3
@@ -100,19 +112,14 @@ let cours = [
 let carts = document.getElementById("carts")
 let niveau = document.getElementById("niveau")
 
-// niveau.addEventListener("change", (e) => {
-//     console.log(e.currentTarget.value)
-//     carts.innerHTML = ""
-
-// })
-function accademy(e) {
-    console.log("hello world", niveau.value)
-}    
-
+function niveaux() {
+let niveauChoisi = niveau.value;
+carts.innerHTML = "";
 for( let i =0 ; i < cours.length ; i++) {
+    if (niveauChoisi == "" || cours[i].niveau == niveauChoisi) {
     carts.innerHTML += `       <div class="border-2 h-auto  w-70 py-1 px-1 rounded-xl bg-[#fcfcfa]">
                 <div class="border-2 h-auto w-[30px] rounded-[6px] py-0.5 bg-[#EDF7F2] ">
-                    <h2 class="flex justify-center">M</h2>
+                    <h2 class="flex justify-center">${cours[i].logo}</h2>
                 </div>
                 <h1 class="text-2xl text-Bleu-Nuit  px-1">${cours[i].titre}</h1>
                 <p class="px-1">${cours[i].matiere}</p>
@@ -122,4 +129,8 @@ for( let i =0 ; i < cours.length ; i++) {
                 <p class="px-1">${cours[i].places} places</p>
                 <button class="text-amber-50 bg-Bleu-Nuit rounded-2xl hover:text-nour px-5">Voir le cours</button>
             </div>`
+    }
 }
+}
+niveau.addEventListener("change", niveaux);
+niveaux();

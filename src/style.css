@@ -9,3 +9,11 @@
   --color-Bleu-Nuit:#172E45;
   --color-background:#E5E5E5;
 }
+
+body {
+    font-family: 'DM Sans', sans-serif;
+}
+
+h1, h2, h3 {
+    font-family: 'Lora', serif;
+}

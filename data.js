@@ -109,28 +109,34 @@ let cours = [
     }
 ];
 
-let carts = document.getElementById("carts")
-let niveau = document.getElementById("niveau")
-
-function niveaux() {
-let niveauChoisi = niveau.value;
-carts.innerHTML = "";
-for( let i =0 ; i < cours.length ; i++) {
-    if (niveauChoisi == "" || cours[i].niveau == niveauChoisi) {
-    carts.innerHTML += `       <div class="border-2 h-auto  w-70 py-1 px-1 rounded-xl bg-[#fcfcfa]">
-                <div class="border-2 h-auto w-[30px] rounded-[6px] py-0.5 bg-[#EDF7F2] ">
-                    <h2 class="flex justify-center">${cours[i].logo}</h2>
+let carts = document.getElementById("carts");
+let niveau = document.getElementById("niveau");
+let matiere = document.getElementById("matiere");
+function afficherCours() {
+    let niveauChoisi = niveau.value;
+    let matiereChoisie = matiere.value;
+    carts.innerHTML = "";
+    for (let i = 0; i < cours.length; i++) {
+        if ((niveauChoisi === "" || cours[i].niveau === niveauChoisi) && (matiereChoisie === "" || cours[i].matiere === matiereChoisie)) {
+            carts.innerHTML += `
+                <div class="border-2 border-gray-300 h-auto w-70 py-1 px-1 rounded-xl bg-[#fcfcfa]">
+                    <div class="border-2 border-gray-300 h-auto w-[30px] rounded-[6px] py-0.5 bg-[#EDF7F2]">
+                        <h2 class="flex justify-center">${cours[i].logo}</h2>
+                    </div>
+                    <h1 class="text-2xl text-Bleu-Nuit px-1">${cours[i].titre}</h1>
+                    <p class="px-1">${cours[i].matiere}</p>
+                    <p class="px-1">${cours[i].niveau}</p>
+                    <p class="px-1">${cours[i].creneau}</p>
+                    <p class="text-nour px-1">${cours[i].prix} MAD / mois</p>
+                    <p class="px-1">${cours[i].places} places</p>
+                    <button class="text-amber-50 bg-nour rounded-2xl hover:text-nour px-5">
+                        Voir le cours
+                    </button>
                 </div>
-                <h1 class="text-2xl text-Bleu-Nuit  px-1">${cours[i].titre}</h1>
-                <p class="px-1">${cours[i].matiere}</p>
-                <p class="px-1">${cours[i].niveau}</p>
-                <p class="px-1">${cours[i].creneau}</p>
-                <p class="text-nour px-1"> ${cours[i].prix} MAD / mois</p>
-                <p class="px-1">${cours[i].places} places</p>
-                <button class="text-amber-50 bg-Bleu-Nuit rounded-2xl hover:text-nour px-5">Voir le cours</button>
-            </div>`
+            `;
+        }
     }
 }
-}
-niveau.addEventListener("change", niveaux);
-niveaux();
+niveau.addEventListener("change", afficherCours);
+matiere.addEventListener("change", afficherCours);
+afficherCours();

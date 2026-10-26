@@ -129,7 +129,7 @@ function afficherCours() {
                     <p class="px-1">${cours[i].creneau}</p>
                     <p class="text-nour px-1">${cours[i].prix} MAD / mois</p>
                     <p class="px-1">${cours[i].places} places</p>
-                    <button class="text-amber-50 bg-nour rounded-2xl hover:text-nour px-5">
+                    <button data-index="${i}"class="voir-cours text-amber-50 bg-nour rounded-2xl hover:text-nour-gold px-5">
                         Voir le cours
                     </button>
                 </div>
@@ -140,3 +140,37 @@ function afficherCours() {
 niveau.addEventListener("change", afficherCours);
 matiere.addEventListener("change", afficherCours);
 afficherCours();
+
+let formulaire = document.getElementById("formulaire");
+let formInscription = document.getElementById("formInscription");
+let coursChoisi = document.getElementById("coursChoisi");
+let niveauChoisi = document.getElementById("niveauChoisi");
+let prixChoisi = document.getElementById("prixChoisi");
+let fermerFormulaire = document.getElementById("fermerFormulaire");
+
+// Ouvrir le formulaire 
+carts.addEventListener("click", function(event) {
+    let bouton = event.target.closest(".voir-cours");
+    if (bouton === null) {
+        return;
+    }
+    let index = Number(bouton.dataset.index);
+    let coursSelectionne = cours[index];
+    coursChoisi.value = coursSelectionne.titre;
+    niveauChoisi.value = coursSelectionne.niveau;
+    prixChoisi.value = coursSelectionne.prix + " MAD / mois";
+
+    formulaire.classList.remove("hidden");
+});
+// Fermer le formulaire
+fermerFormulaire.addEventListener("click", function() {
+    formulaire.classList.add("hidden");
+});
+
+// Valider le formulaire
+formInscription.addEventListener("submit", function(event) {
+    event.preventDefault();
+    alert("Votre demande d'inscription a ete préparée !");
+    formInscription.reset();
+    formulaire.classList.add("hidden");
+});

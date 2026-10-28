@@ -170,7 +170,7 @@ fermerFormulaire.addEventListener("click", function() {
 // Valider le formulaire
 formInscription.addEventListener("submit", function(event) {
     event.preventDefault();
-    alert("Votre demande d'inscription a ete préparée !");
+    alert("Votre demande d'inscription a ete preparee !");
     formInscription.reset();
     formulaire.classList.add("hidden");
 });

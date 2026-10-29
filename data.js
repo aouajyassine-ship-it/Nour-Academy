@@ -112,12 +112,33 @@ let cours = [
 let carts = document.getElementById("carts");
 let niveau = document.getElementById("niveau");
 let matiere = document.getElementById("matiere");
+let recherche = document.getElementById("recherche");
+let boutonRecherche = document.getElementById("boutonRecherche");
+
 function afficherCours() {
     let niveauChoisi = niveau.value;
     let matiereChoisie = matiere.value;
+
+    // On récupère le texte tapé et on le met en minuscules.
+    let texteRecherche = recherche.value.toLowerCase();
+
+    // Cette variable compte les cours affichés.
+    let nombreResultats = 0;
+
     carts.innerHTML = "";
     for (let i = 0; i < cours.length; i++) {
-        if ((niveauChoisi === "" || cours[i].niveau === niveauChoisi) && (matiereChoisie === "" || cours[i].matiere === matiereChoisie)) {
+        // On met le titre, la matière et le niveau en minuscules pour comparer.
+        let titreCours = cours[i].titre.toLowerCase();
+        let matiereCours = cours[i].matiere.toLowerCase();
+        let niveauCours = cours[i].niveau.toLowerCase();
+
+        // On vérifie les filtres et la recherche en même temps.
+        if ((niveauChoisi === "" || cours[i].niveau === niveauChoisi) &&
+            (matiereChoisie === "" || cours[i].matiere === matiereChoisie) &&
+            (texteRecherche === "" ||
+                titreCours.includes(texteRecherche) ||
+                matiereCours.includes(texteRecherche) ||
+                niveauCours.includes(texteRecherche))) {
             carts.innerHTML += `
                 <div class="border-2 border-gray-300 h-auto w-70 py-1 px-1 rounded-xl bg-[#fcfcfa]">
                     <div class="border-2 border-gray-300 h-auto w-[30px] rounded-[6px] py-0.5 bg-[#EDF7F2]">
@@ -134,11 +155,25 @@ function afficherCours() {
                     </button>
                 </div>
             `;
+
+            // On a trouvé un cours de plus à afficher.
+            nombreResultats = nombreResultats + 1;
         }
+    }
+
+    // Si aucun cours ne correspond, on affiche le message.
+    if (nombreResultats === 0) {
+        carts.innerHTML = `<p class="text-center w-full py-10">Aucun cours trouvé.</p>`;
     }
 }
 niveau.addEventListener("change", afficherCours);
 matiere.addEventListener("change", afficherCours);
+
+// La recherche se met à jour pendant que l'utilisateur écrit.
+recherche.addEventListener("input", afficherCours);
+
+// Le bouton "Rechercher" affiche aussi les résultats.
+boutonRecherche.addEventListener("click", afficherCours);
 afficherCours();
 
 let formulaire = document.getElementById("formulaire");

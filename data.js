@@ -174,3 +174,19 @@ formInscription.addEventListener("submit", function(event) {
     formInscription.reset();
     formulaire.classList.add("hidden");
 });
+
+let menuMobile = document.getElementById("menuMobile");
+let navigation = document.getElementById("navigation");
+menuMobile.addEventListener("click", function () {
+    navigation.classList.toggle("hidden");
+
+    let menuOuvert = !navigation.classList.contains("hidden");
+
+    menuMobile.setAttribute("aria-expanded", menuOuvert);
+
+    if (menuOuvert) {
+        menuMobile.setAttribute("aria-label", "Fermer le menu");
+    } else {
+        menuMobile.setAttribute("aria-label", "Ouvrir le menu");
+    }
+});
